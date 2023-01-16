@@ -1,64 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Laravel Instact
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Começando
 
-## About Laravel
+As instruções a seguir vão adicionar uma cópia do projeto na sua máquina local para testes e desenvolvimento.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Pré-requisitos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Você precisa dos seguintes serviços instalados no seu computador:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```
+GIT
+PHP ^7.4
+MySQL
+Composer (https://getcomposer.org/)
+```
 
-## Learning Laravel
+### Instalando
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Primeiramente é necessária uma base de dados, para isso é preciso criar uma:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```
+CREATE DATABASE laravel;
+GRANT ALL PRIVILEGES ON laravel . * TO 'seu_usuario'@'localhost';
+```
 
-## Laravel Sponsors
+- Clone o projeto para sua máquina (coloque na pasta do seu servidor WEB):
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+git clone https://github.com/eduardoplnascimento/instact.git
+```
 
-### Premium Partners
+- Entre no diretório **instact**.
+- Copie o arquivo .env.example e nomeie .env:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+```
+cp .env.example .env
+```
 
-## Contributing
+- Configurar o arquivo .env com as suas informações:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
+```
 
-## Code of Conduct
+- Rodar o comando para instalação (pode demorar alguns minutos):
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+composer install
+```
 
-## Security Vulnerabilities
+- Rodar o comando para gerar a chave do Laravel:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+php artisan key:generate
+```
 
-## License
+- Rodar os comandos para migrar o banco de dados com alguns dados de teste:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+php artisan migrate
+```
+
+### Abrir o servidor backend
+
+- Para rodar o servidor backend utilize o comando:
+
+```
+php artisan serve
+```
+
+## Utilização
+
+- Acessando a URL do projeto, você será direcionado para a página de *login*:
+
+![](https://i.imgur.com/4J8OCmp.png)
+
+- A partir dessa página é possível fazer o *login* ou acessar a página de cadastro:
+
+![](https://i.imgur.com/yOT5r1Y.png)
+
+- Após fazer o *login* ou cadastro, o usuário é redirecionado para a rota ```/dashboard```
+
+![](https://i.imgur.com/GQRXUXw.png)
