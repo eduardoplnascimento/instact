@@ -12,7 +12,7 @@
 
         <div class="navbar-nav flex-row">
 
-            <a href="/create" class="nav-link me-3">
+            <a href="/posts/create" class="nav-link me-3">
                 <i class="bi bi-plus-square fs-3"></i>
             </a>
 
