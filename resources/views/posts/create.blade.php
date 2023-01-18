@@ -9,7 +9,7 @@
 
             <h1>Criar Post</h1>
 
-            <input type="file" name="photo1" class="form-control mb-3">
+            <input type="file" name="photo" class="form-control mb-3">
 
             <textarea name="description" placeholder="Descrição" class="form-control mb-3"></textarea>
 

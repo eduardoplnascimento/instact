@@ -5,7 +5,7 @@
         <div class="navbar-header">
 
             <a href="/" class="navbar-brand">
-                <img width="100" src="/images/logo.png">
+                <img width="100" src="https://i.imgur.com/DSRXJvf.png">
             </a>
 
         </div>
