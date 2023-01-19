@@ -9,7 +9,7 @@
 
             <h1>Editar Post</h1>
 
-            <img src="{{ $post->image }}" class="mb-3">
+            <img width="400" src="{{ $post->image }}" class="mb-3">
 
             <textarea name="description" placeholder="Descrição"
                 class="form-control mb-3">{{ $post->description }}</textarea>
@@ -19,7 +19,9 @@
 
         <form action="/posts/destroy/{{$post->id}}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-link text-danger mt-2">Deletar</button>
+            <button type="submit" class="btn btn-link text-danger mt-2">
+                Deletar
+            </button>
         </form>
 
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,17 +27,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $user = auth()->user();
+        try {
+            $user = auth()->user();
 
-        $path = $request->photo->store('public/images');
+            $path = $request->photo->store('public/images');
 
-        Post::create([
-            'image' => Storage::url($path),
-            'description' => $request->description,
-            'user_id' => $user->id
-        ]);
+            Post::create([
+                'image' => Storage::url($path),
+                'description' => $request->description,
+                'user_id' => $user->id
+            ]);
 
-        return redirect('/');
+            logger()->notice('Um post foi feito por ' . $user->name);
+
+            return redirect('/');
+        } catch (\Throwable $th) {
+            logger()->error($th);
+            abort(500);
+        }
     }
 
     /**
